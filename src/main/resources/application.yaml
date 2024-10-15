@@ -1,0 +1,30 @@
+spring:
+  application:
+  name: booking_app-END
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/booking
+    username: admin
+    password: admin123
+    driver-class-name: org.postgresql.Driver
+
+    jpa:
+      hibernate:
+        ddl-auto: update
+      show-sql: true
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.PostgreSQLDialect
+          format_sql: true
+#  liquibase:
+#    change-log:
+#      classpath:liquibase/changelog-master.yml
+
+  springdoc:
+    swagger-ui:
+      path: /swagger-ui.html
+app:
+  my-config:
+    username: asd1
+    password: asd2
+    duration: 5

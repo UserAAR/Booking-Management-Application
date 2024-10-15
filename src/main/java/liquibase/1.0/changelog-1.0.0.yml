@@ -1,0 +1,35 @@
+#databaseChangeLog:
+#  - changeSet:
+#      id: 1
+#      author: AmilAndSarkhan
+#      changes:
+#        - createTable:
+#            tableName: flights
+#            columns:
+#              - column:
+#                  name: id
+#                  type: BIGINT
+#                  autoIncrement: true
+#                  constraints:
+#                    primaryKey: true
+#                    nullable: false
+#              - column:
+#                  name: origin
+#                  type: VARCHAR(255)
+#                  constraints:
+#                    nullable: false
+#              - column:
+#                  name: destination
+#                  type: VARCHAR(255)
+#                  constraints:
+#                    nullable: false
+#              - column:
+#                  name: departure_time
+#                  type: TIMESTAMP
+#                  constraints:
+#                    nullable: false
+#              - column:
+#                  name: free_seats
+#                  type: INT
+#                  constraints:
+#                    nullable: false

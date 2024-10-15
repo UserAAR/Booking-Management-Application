@@ -1,0 +1,92 @@
+create table flights(
+   id serial PRIMARY KEY,
+   origin varchar(100),
+   destination varchar(50),
+   departure_time varchar(40),
+   free_seats int not null
+);
+
+create table bookings(
+   id serial primary key ,
+   flight_id int,
+   booking_date_time timestamp default current_timestamp,
+   FOREIGN KEY (flight_id) references flights(id) On DELETE CASCADE
+);
+
+create table passengers(
+   id serial primary key ,
+   full_name varchar(100) not null
+);
+
+
+
+create table bookings_passengers(
+   booking_id int,
+   passenger_id int,
+   FOREIGN KEY (booking_id) references bookings(id) ,
+   FOREIGN KEY (passenger_id) references passengers(id)
+);
+
+
+
+-- Data
+INSERT INTO flights (origin, destination, departure_time, free_seats) VALUES
+  ('NewYork', 'London', '2024-08-20 08:30:00', 120),
+  ('Paris', 'Berlin', '2024-08-21 10:00:00', 80),
+  ('Tokyo', 'Seoul', '2024-08-22 13:45:00', 150),
+  ('LosAngeles', 'Sydney', '2024-08-23 22:15:00', 60),
+  ('Dubai', 'Mumbai', '2024-08-24 07:50:00', 200),
+  ('Beijing', 'Shanghai', '2024-08-25 16:20:00', 100),
+  ('BAKU', 'MOSCOW', '2024-08-26 11:05:00', 75),
+  ('BERLIN', 'PARIS', '2024-08-27 18:40:00', 50),
+  ('ISTANBUL', 'NewYork', '2024-08-28 09:15:00', 110),
+  ('London', 'Shanghai', '2024-08-29 14:00:00', 90);
+
+INSERT INTO bookings (flight_id) VALUES
+  (1),
+  (2),
+  (3),
+  (4),
+  (5),
+  (6),
+  (7),
+  (8),
+  (9),
+  (10);
+
+
+INSERT INTO passengers (full_name) VALUES
+  ('John Doe'),
+  ('Jane Smith'),
+  ('Michael Johnson'),
+  ('Emily Davis'),
+  ('William Brown'),
+  ('Olivia Wilson'),
+  ('James Jones'),
+  ('Sophia Garcia'),
+  ('Benjamin Miller'),
+  ('Ava Martinez');
+
+
+INSERT INTO bookings_passengers (booking_id, passenger_id) VALUES
+  (1, 1),
+  (2, 2),
+  (3, 3),
+  (4, 4),
+  (5, 5),
+  (6, 6),
+  (7, 7),
+  (8, 8),
+  (9, 9),
+  (10, 10),
+  (1, 2),
+  (2, 3),
+  (3, 4),
+  (4, 5),
+  (5, 6),
+  (6, 7),
+  (7, 8),
+  (8, 9),
+  (9, 10),
+  (10, 1);
+
