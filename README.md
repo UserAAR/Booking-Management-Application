@@ -14,6 +14,7 @@ Booking Management Application is a full-stack Java backend project designed to 
 - **JPA (Java Persistence API) / Hibernate** for ORM
 - **PostgreSQL** for the database
 - **Docker** for containerization
+- **Liquibase** for database migrations
 - **Lombok** for reducing boilerplate code (Getters, Setters, Builders)
 - **Gradle** for build automation
 
